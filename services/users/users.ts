@@ -4,7 +4,7 @@ import {
   Status,
   Role,
   type User,
-} from '../../types/UserPanel';
+} from '~/types/UserPanel';
 
 export const getUsers = () => {
   return [

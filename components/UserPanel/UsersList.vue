@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-center gap-2">
-    <h2 class="my-3 text-center font-bold text-slate-600">
+  <div class="mb-2 mt-4 flex items-center justify-center gap-2">
+    <h2 class="text-center font-bold text-slate-600">
       {{ role }}
     </h2>
 
@@ -24,7 +24,7 @@
           :status="user.status"
         />
 
-        <transition name="slide-fade">
+        <transition name="fade">
           <user-details
             v-if="usersPanelOpened"
             :name="user.name"
@@ -32,37 +32,39 @@
             :working-from="user.workingFrom"
           />
 
-          <div v-else>
-            <svg
+          <div v-else class="flex flex-col justify-between">
+            <img
               v-if="user.workingFrom === 'home'"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-4 w-4 text-red-600"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-              />
-            </svg>
-            <svg
+              src="@/assets/icons/home.svg"
+              alt="home icon"
+              class="h-4 w-4"
+            />
+            <img
               v-else
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-4 w-4 text-yellow-500"
+              src="@/assets/icons/office.svg"
+              alt="office icon"
+              class="h-4 w-4"
+            />
+
+            <button
+              type="button"
+              class="rounded-xl bg-gray-100 p-1 text-gray-400 shadow hover:bg-gray-200"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-4 w-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
+                />
+              </svg>
+            </button>
           </div>
         </transition>
       </div>
@@ -92,17 +94,16 @@ export default {
 };
 </script>
 <style scoped>
-.slide-fade-enter-active {
-  transition: all 0.2s ease-out;
+.fade-enter-active {
+  transition: all 150ms ease-in-out;
 }
 
-.slide-fade-leave-active {
-  transition: all 0 ease-in-out;
+.fade-leave-active {
+  transition: all 0s ease-in-out;
 }
 
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

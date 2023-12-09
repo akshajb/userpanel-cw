@@ -9,13 +9,18 @@
           >{{ department }}</span
         >
       </div>
-      <p class="text-xs capitalize text-gray-400">
+      <p
+        :class="[
+          'text-xs capitalize',
+          workingFrom === 'home' ? 'text-blue-500' : 'text-yellow-600',
+        ]"
+      >
         {{ workingFrom }}
       </p>
     </div>
     <button
       type="button"
-      class="rounded-xl bg-gray-50 p-2 text-blue-300 shadow hover:bg-gray-100"
+      class="rounded-xl bg-gray-100 p-2 text-gray-400 shadow hover:bg-gray-200"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
