@@ -1,6 +1,17 @@
-# Nuxt 3 Minimal Starter
+# Collapsible User Panel for Chat System
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Project Overview
+
+This repository contains the code for a collapsible user panel designed for a chat application. It features a section where users can see all members who have access to the chat rooms.
+
+## Technology Stack
+
+- **Nuxt 3**: Primary Framework.
+- **TypeScript**: For type-safe code and improved developer experience.
+- **TailwindCSS**: For styling.
+- **Jest**: For unit testing.
+- **Vue Observable Store**: For state management.
+- **JSDoc**: For documenting the codebase.
 
 ## Setup
 
