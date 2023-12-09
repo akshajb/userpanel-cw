@@ -8,10 +8,16 @@ export const state = reactive({
 export const getters = {};
 
 export const mutations = {
+  /**
+   * @param {User[]} val
+   */
   setUsers: (val) => (state.users = val),
 };
 
 export const actions = {
+  /**
+   * Action to fetch user from a service.
+   */
   fetchUsers() {
     const users = getUsers();
     mutations.setUsers(users);

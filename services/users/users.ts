@@ -6,7 +6,11 @@ import {
   type User,
 } from '~/types/UserPanel';
 
-export const getUsers = () => {
+/**
+ * Responsible for fetching Users
+ * @returns Array of Users
+ */
+export const getUsers = (): User[] => {
   return [
     {
       name: 'Bessie Cooper',
@@ -91,6 +95,14 @@ export const getUsers = () => {
   ];
 };
 
+// Could have just used users.filter() and filter by role.
+// But for the worst case scenario it has a complexity of O(n ^ 2)
+// This gives us O(n)
+/**
+ *
+ * @param users Array of Users
+ * @returns Object of the format { role: users } for each role
+ */
 export const groupUsersByRole = (users: User[]): Record<Role, User[]> => {
   if (users && users.length > 0) {
     return users.reduce(

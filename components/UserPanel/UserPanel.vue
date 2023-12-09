@@ -74,12 +74,18 @@ export default defineComponent({
       return groupUsersByRole(this.users);
     },
 
+    /**
+     * Array of roles
+     */
     roles() {
       return Object.keys(this.usersByRole) as Role[];
     },
   },
 
   methods: {
+    /**
+     * Handles UsersPanel toggle state
+     */
     toggleUsersPanel() {
       this.$emit('toggle');
     },
