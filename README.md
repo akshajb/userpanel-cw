@@ -9,9 +9,10 @@ This repository contains the code for a collapsible user panel designed for a ch
 - **Nuxt 3**: Primary Framework.
 - **TypeScript**: For type-safe code and improved developer experience.
 - **TailwindCSS**: For styling.
-- **Jest**: For unit testing.
 - **Vue Observable Store**: For state management.
+- **Jest**: For unit testing.
 - **JSDoc**: For documenting the codebase.
+- **ESLint & Prettier**: For linting and formatting.
 
 ## Setup
 
