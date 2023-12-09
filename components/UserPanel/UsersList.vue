@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center gap-2">
     <h2 class="my-3 text-center font-bold text-slate-600">
-      {{ users[0].role }}
+      {{ role }}
     </h2>
 
     <span
@@ -12,14 +12,14 @@
 
   <div
     v-for="(user, index) in users"
-    :key="user.name"
+    :key="index"
     class="my-1 rounded-xl p-4 shadow"
   >
     <div class="flex items-center justify-between">
       <div class="flex flex-grow gap-4">
         <user-image
           :online="user.online"
-          :src="`${user.profilePicture}${generateRandomNumber(index)}.jpg`"
+          :src="`${user.profilePicture}`"
           :alt="`profile picture of ${user.name}`"
           :status="user.status"
         />
@@ -72,12 +72,16 @@
 <script>
 import UserDetails from './UserDetails.vue';
 import UserImage from './UserImage.vue';
-
 export default {
   components: { UserDetails, UserImage },
+
   props: {
     users: {
       type: Array,
+      required: true,
+    },
+    role: {
+      type: String,
       required: true,
     },
     usersPanelOpened: {
@@ -85,10 +89,20 @@ export default {
       required: true,
     },
   },
-  methods: {
-    generateRandomNumber(index) {
-      return Math.floor(Math.random() * 50) + index;
-    },
-  },
 };
 </script>
+<style scoped>
+.slide-fade-enter-active {
+  transition: all 0.2s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0 ease-in-out;
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
